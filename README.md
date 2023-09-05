@@ -4,6 +4,8 @@ An educational quiz-game touching the topics of racism and other isms/phobias.
 
 At early development stages.
 
+Help wanted! I'm not a web developer, ux or game designer, nor artist. Any assistance in creating this game would be very appreciated!
+
 ## Contributing
 
 ### Setting up local environment
