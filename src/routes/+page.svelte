@@ -56,10 +56,27 @@
 	}
 </script>
 
+<a href="https://github.com/yairchu/soul-arithmetic">
+	<img
+		style="position: absolute; top: 0; right: 0; border: 0;"
+		decoding="async"
+		width="149"
+		height="149"
+		src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149"
+		alt="Fork me on GitHub"
+		loading="lazy"
+		data-recalc-dims="1"
+	/>
+</a>
+
 <div style="width: 800px; margin: auto">
 	<h1>Soul Arithmetic</h1>
 	{#each questions.slice(0, cur_question_idx + 1) as question, question_idx}
-		<img src={question_idx == cur_question_idx ? question.image : question.origin_image} alt="An important elf" width="500px" />
+		<img
+			src={question_idx == cur_question_idx ? question.image : question.origin_image}
+			alt="An important elf"
+			width="500px"
+		/>
 		<h2>"{question.quote}"</h2>
 		<p>{question.info}</p>
 		<p>
