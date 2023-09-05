@@ -8,8 +8,9 @@
 
 	let questions = shuffle([
 		{
+			title: 'Elves and Dwarves',
 			image: 'high-elf-jurum-ka.jpg',
-			quote: 'The elven army should wipe Nogrod* off the face of the earth',
+			quote: 'The elven army should wipe Nogrod* off the face of middle-earth',
 			info: '- Jurum Ka, high elven minister of weather manipulation. (Nogrod is a dwarvish town)',
 			origin: 'The Israeli finance minister on an Arab village',
 			origin_image: 'bezalel-smotrich.jpg',
@@ -33,9 +34,10 @@
 			]
 		},
 		{
+			title: 'Merfolk and humans',
 			image: 'mermen-king-arion.jpg',
 			quote: 'I would prefer my daughter to die than have a relationship with a surface dweller',
-			info: '- Arion, king of the merfolk. (Surface dweller is a slur for humans)',
+			info: '- Arion, king of the merfolk. ("Surface dweller" is a slur for humans)',
 			origin: 'The president of Brazil on homosexuality',
 			origin_image: 'jair-bolsonaro.jpg',
 			origin_info: `
@@ -47,7 +49,7 @@
 				`,
 			alt_answers: [
 				'A Mormon apostle on crossbreeding with Jews',
-				'The Israeli minister of transporation on mixed marriages',
+				'The Israeli minister of transportation on mixed marriages',
 				'A US senator on relationships with Republicans'
 			]
 		}
@@ -89,7 +91,18 @@
 
 <div style="width: 800px; margin: auto">
 	<h1>Soul Arithmetic</h1>
+	<p>
+		This educational quiz-game is meant to confront societal tolerance towards racism, misoginy,
+		homophobia, and other forms of intolerance.
+	</p>
+	<p>
+		It consists of imaginary offensive quotes which are based on actual quotes said by actual people
+		of importance and positions of power in our society.
+	</p>
+	<p>If that's fine by you, then here we go:</p>
 	{#each questions.slice(0, cur_question_idx + 1) as question, question_idx}
+		<hr />
+		<h2>Question #{cur_question_idx + 1}: {question.title}</h2>
 		<img
 			src={question_idx == cur_question_idx ? question.image : question.origin_image}
 			alt="An important elf"
