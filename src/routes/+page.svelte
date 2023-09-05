@@ -34,7 +34,7 @@
 		},
 		{
 			image: 'mermen-king-arion.jpg',
-			quote: 'I would my daughter to die than have a relationship with a surface dweller',
+			quote: 'I would prefer my daughter to die than have a relationship with a surface dweller',
 			info: '- Arion, king of the merfolk. (Surface dweller is a slur for humans)',
 			origin: 'The president of Brazil on homosexuality',
 			origin_image: 'jair-bolsonaro.jpg',
