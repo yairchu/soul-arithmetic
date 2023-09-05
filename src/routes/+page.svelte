@@ -11,16 +11,15 @@
 			image: 'high-elf-jurum-ka.jpg',
 			quote: 'The elven army should wipe Nogrod* off the face of the earth',
 			info: '- Jurum Ka, high elven minister of weather manipulation. (Nogrod is a dwarvish town)',
-			origin: 'The Israeli Finance Minister on an Arab village',
+			origin: 'The Israeli finance minister on an Arab village',
 			origin_image: 'bezalel-smotrich.jpg',
 			origin_info: `
                 <p>
 					Israel’s finance minister, Bezalel Smotrich, called for the destruction of Huwara, a West
 					Bank Palestinian village days after
-					<a href="https://en.wikipedia.org/wiki/Huwara_rampage"
-						>it was attacked by a mob of settlers who torched dozens of homes and killed one
-						resident</a
-					>.
+					<a href="https://en.wikipedia.org/wiki/Huwara_rampage">
+						it was attacked by a mob of settlers who torched dozens of homes and killed one
+						resident</a>.
 				</p>
 				<p>
 					Smotrich: “The village of Hawara needs to be wiped out. I think that the State of Israel
@@ -31,6 +30,25 @@
 				'The leader of an Arab terror organization on an Israeli settlement',
 				'A Russian general on a Ukranian city',
 				'A Nazi affiliated journalist in 1930s Germany on a Jewish suburb'
+			]
+		},
+		{
+			image: 'mermen-king-arion.jpg',
+			quote: 'I would my daughter to die than have a relationship with a surface dweller',
+			info: '- Arion, king of the merfolk. (Surface dweller is a slur for humans)',
+			origin: 'The President of Brazil on homosexuality',
+			origin_image: 'jair-bolsonaro.jpg',
+			origin_info: `
+				<p>
+					Jair Bolsonaro, the president of Brazil between 2019-2022
+					<a href="https://en.wikipedia.org/wiki/Jair_Bolsonaro#Views_on_homosexuality">
+						has said that if he had a gay son then he would prefer for him to die in an accident</a>.
+				</p>
+				`,
+			alt_answers: [
+				'A Mormon Apostle on crossbreeding with Jews',
+				'The Israeli minister of transporation on mixed marriages',
+				'A US senator on relationships with Republicans'
 			]
 		}
 	]);
