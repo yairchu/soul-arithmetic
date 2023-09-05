@@ -1,31 +1,25 @@
-# create-svelte
+# Soul arithmetic
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+An educational quiz-game touching the topics of racism and other isms/phobias.
 
-## Creating a project
+At early development stages.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Contributing
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### Setting up local environment
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+This project is written with SvelteJS.
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+After installing `npm`, you'll need to
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
+git clone https://github.com/yairchu/soul-arithmetic.git
+cd soul-arithmetic
+npm install
 npm run dev -- --open
 ```
 
-## Building
+### Building
 
 To create a production version of your app:
 
