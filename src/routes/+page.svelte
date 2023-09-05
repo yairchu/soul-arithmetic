@@ -36,7 +36,7 @@
 			image: 'mermen-king-arion.jpg',
 			quote: 'I would my daughter to die than have a relationship with a surface dweller',
 			info: '- Arion, king of the merfolk. (Surface dweller is a slur for humans)',
-			origin: 'The President of Brazil on homosexuality',
+			origin: 'The president of Brazil on homosexuality',
 			origin_image: 'jair-bolsonaro.jpg',
 			origin_info: `
 				<p>
@@ -46,7 +46,7 @@
 				</p>
 				`,
 			alt_answers: [
-				'A Mormon Apostle on crossbreeding with Jews',
+				'A Mormon apostle on crossbreeding with Jews',
 				'The Israeli minister of transporation on mixed marriages',
 				'A US senator on relationships with Republicans'
 			]
