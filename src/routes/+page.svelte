@@ -72,7 +72,16 @@
 	function guess() {
 		score += cur_question.selected.includes(cur_question.origin) ? gain : penalty;
 		cur_question.score_after = score;
+		let prev = cur_question_idx;
 		cur_question_idx += 1;
+		// After the document updates, animate scrolling so that the button to go to next question is visible
+		setTimeout(() => scrollIntoView(`after-question-${prev}`, 'nearest'), 0);
+	}
+
+	function scrollIntoView(id: string, block: ScrollLogicalPosition = 'start') {
+		let elem = document.getElementById(id);
+		if (!elem) return;
+		elem.scrollIntoView({ behavior: 'smooth', block });
 	}
 </script>
 
@@ -100,38 +109,46 @@
 		of importance and positions of power in our society.
 	</p>
 	<p>If that's fine by you, then here we go:</p>
+	<hr />
 	{#each questions.slice(0, cur_question_idx + 1) as question, question_idx}
-		<hr />
-		<h2>Question #{cur_question_idx + 1}: {question.title}</h2>
-		<img
-			src={question_idx == cur_question_idx ? question.image : question.origin_image}
-			alt="An important elf"
-			width="500px"
-		/>
-		<h2>"{question.quote}"</h2>
-		<p>{question.info}</p>
-		<p>
-			The above statement is based on a statement originally said by a human on other humans. Guess
-			who it was:
-		</p>
-		{#each question.answers as answer}
-			<label class:origin={question_idx < cur_question_idx && answer == question.origin}>
-				<input
-					type="checkbox"
-					name="answers"
-					value={answer}
-					bind:group={question.selected}
-					disabled={question_idx < cur_question_idx}
-				/>
-				{answer}
-			</label>
-		{/each}
-		{#if question_idx < cur_question_idx}
-			<div class="origin" style="padding:10px; background: #eee">
-				{@html question.origin_info}
-			</div>
-			<p>Score: <b>{question.score_after}</b></p>
-		{/if}
+		<div id="question-{question_idx}">
+			<h2>Question #{cur_question_idx + 1}: {question.title}</h2>
+			<img
+				src={question_idx == cur_question_idx ? question.image : question.origin_image}
+				alt="An important elf"
+				width="500px"
+			/>
+			<h2>"{question.quote}"</h2>
+			<p>{question.info}</p>
+			<p>
+				The above statement is based on a statement originally said by a human on other humans.
+				Guess who it was:
+			</p>
+			{#each question.answers as answer}
+				<label class:origin={question_idx < cur_question_idx && answer == question.origin}>
+					<input
+						type="checkbox"
+						name="answers"
+						value={answer}
+						bind:group={question.selected}
+						disabled={question_idx < cur_question_idx}
+					/>
+					{answer}
+				</label>
+			{/each}
+			{#if question_idx < cur_question_idx}
+				<div class="origin" style="padding:10px; background: #eee">
+					{@html question.origin_info}
+				</div>
+				<p>Score: <b>{question.score_after}</b></p>
+				{#if question_idx < questions.length - 1}
+					<button on:click={() => scrollIntoView(`question-${question_idx + 1}`)}>
+						Next question
+					</button>
+				{/if}
+				<hr id="after-question-{question_idx}" />
+			{/if}
+		</div>
 	{/each}
 	{#if cur_question_idx < questions.length}
 		<button disabled={!enabled} on:click={guess}>
