@@ -89,7 +89,7 @@
 	/>
 </a>
 
-<div style="width: 800px; margin: auto">
+<div style="margin: auto" id="content">
 	<h1>Soul Arithmetic</h1>
 	<p>
 		This educational quiz-game is meant to confront societal tolerance towards racism, misoginy,
@@ -159,6 +159,15 @@
 </div>
 
 <style>
+	#content {
+		margin: auto;
+		width: 80%;
+		max-width: 800px;
+	}
+	img {
+		max-width: 100%;
+		height: auto;
+	}
 	* {
 		font-size: large;
 	}
