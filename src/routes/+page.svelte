@@ -75,7 +75,28 @@
 			alt_answers: [
 				'The prime minister of Japan on Koreans',
 				'The chief Rabbi of Israel on mixed marriages',
-				'The president of the US on Mexicans',
+				'The president of the US on Mexicans'
+			]
+		},
+		{
+			title: 'Cyborgs and humans',
+			image: 'professor-zoltar.jpg',
+			quote: 'Bios should not be accepted into universities, they are too stupid to learn',
+			info: '- Professor Zoltar, head of the first Mars university (bios are non-cyborg humans)',
+			origin: 'The Israeli chief Rabbi on women studying Torah',
+			origin_image: 'ovadia-yosef.jpg',
+			origin_info: `
+				<p>
+					Rabbi Ovadia Yosef
+					<a href="https://www.jpost.com/jewish-world/jewish-news/rabbi-ovadia-women-should-stick-to-cooking-sewing">
+						has said</a>
+					that women should not engage in religious studies because they are stupid.
+				</p>
+				`,
+			alt_answers: [
+				'The president of the US in the beginning of the 19th century on people of color',
+				'The president of Oxford university on women studying engineering',
+				'The leader of ISIS on women participating in paramilitary organizations'
 			]
 		}
 	]);
