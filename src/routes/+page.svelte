@@ -52,6 +52,31 @@
 				'The Israeli minister of transportation on mixed marriages',
 				'A US senator on relationships with Republicans'
 			]
+		},
+		{
+			title: 'Magicians and muggles',
+			image: 'magic-councilour-sir-bauldinium.jpg',
+			quote: 'Magicians and muggles should not mix, it only leads to tension and violence',
+			info: '- Sir Bauldinium, member of the magic council (muggles are non-magical humans)',
+			origin: 'The prime minister of South Africa during Apartheid',
+			origin_image: 'hendrik-verwoerd.jpg',
+			origin_info: `
+				<p>
+					Hendrik Verwoerd, the founding prime minister of Apartheid South Africa,
+					<a href="https://en.wikiquote.org/wiki/Hendrik_Verwoerd">has said</a>:
+				</p>
+				<p>
+					"There will be competition and conflict everywhere.
+					So long as the points of contact are still comparatively few, as is the case now,
+					friction and conflict will be few and less evident.
+					The more this intermixing develops, however, the stronger the conflict will become."
+				</p>
+				`,
+			alt_answers: [
+				'The prime minister of Japan on Koreans',
+				'The chief Rabbi of Israel on mixed marriages',
+				'The president of the US on Mexicans',
+			]
 		}
 	]);
 	questions.forEach((question) => {
