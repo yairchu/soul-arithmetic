@@ -16,7 +16,7 @@
 			origin_image: 'bezalel-smotrich.jpg',
 			origin_info: `
                 <p>
-					Israel’s finance minister, Bezalel Smotrich, called for the destruction of Huwara, a West
+					Israel's finance minister, Bezalel Smotrich, called for the destruction of Huwara, a West
 					Bank Palestinian village days after
 					<a href="https://en.wikipedia.org/wiki/Huwara_rampage">
 						it was attacked by a mob of settlers who torched dozens of homes and killed one
@@ -24,7 +24,7 @@
 				</p>
 				<p>
 					Smotrich: “The village of Hawara needs to be wiped out. I think that the State of Israel
-					needs to do that – not, God forbid, private individuals”
+					needs to do that - not, God forbid, private individuals”
 				</p>
                 `,
 			alt_answers: [
