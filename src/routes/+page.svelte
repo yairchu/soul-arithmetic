@@ -14,7 +14,7 @@
 			info: '- Jurum Ka, high elven minister of weather manipulation. (Nogrod is a dwarvish town)',
 			origin: 'The Israeli finance minister on an Arab village',
 			origin_image: 'bezalel-smotrich.jpg',
-			origin_info: `
+			origin_info: /*html*/ `
                 <p>
 					Israel's finance minister, Bezalel Smotrich, called for the destruction of Huwara, a West
 					Bank Palestinian village days after
@@ -40,7 +40,7 @@
 			info: '- Arion, king of the merfolk. ("Surface dweller" is a slur for humans)',
 			origin: 'The president of Brazil on homosexuality',
 			origin_image: 'jair-bolsonaro.jpg',
-			origin_info: `
+			origin_info: /*html*/ `
 				<p>
 					Jair Bolsonaro, the president of Brazil between 2019-2022
 					<a href="https://en.wikipedia.org/wiki/Jair_Bolsonaro#Views_on_homosexuality">
@@ -60,7 +60,7 @@
 			info: '- Sir Bauldinium, member of the magic council (muggles are non-magical humans)',
 			origin: 'The prime minister of South Africa during Apartheid',
 			origin_image: 'hendrik-verwoerd.jpg',
-			origin_info: `
+			origin_info: /*html*/ `
 				<p>
 					Hendrik Verwoerd, the founding prime minister of Apartheid South Africa,
 					<a href="https://en.wikiquote.org/wiki/Hendrik_Verwoerd">has said</a>:
@@ -85,7 +85,7 @@
 			info: '- Professor Zoltar, head of the first Mars university (bios are non-cyborg humans)',
 			origin: 'The Israeli chief Rabbi on women studying Torah',
 			origin_image: 'ovadia-yosef.jpg',
-			origin_info: `
+			origin_info: /*html*/ `
 				<p>
 					Rabbi Ovadia Yosef
 					<a href="https://www.jpost.com/jewish-world/jewish-news/rabbi-ovadia-women-should-stick-to-cooking-sewing">
