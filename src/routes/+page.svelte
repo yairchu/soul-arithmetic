@@ -178,6 +178,7 @@
                         value={answer}
                         bind:group={question.selected}
                         disabled={question_idx < cur_question_idx}
+                        on:click={() => scrollIntoView(`submit`)}
                     />
                     {answer}
                 </label>
@@ -188,7 +189,7 @@
                 </div>
                 <p>Score: <b>{question.score_after}</b></p>
                 {#if question_idx < questions.length - 1}
-                    <button on:click={() => scrollIntoView(`question-${question_idx + 1}`)}>
+                    <button on:click={() => scrollIntoView(`question-${question_idx + 1}`)} class="next">
                         Next question
                     </button>
                 {/if}
@@ -197,18 +198,16 @@
         </div>
     {/each}
     {#if cur_question_idx < questions.length}
-        <button disabled={!enabled} on:click={guess}>
-            <p>
-                {#if skip}
-                    Skip question
-                {:else}
-                    Submit guess
-                {/if}
-                (<b>{cur_question.selected.length}</b>/<b>{total}</b> choices selected).
-                {#if enabled}
-                    Points: <b>+{gain}</b> if correct, <b>{penalty}</b> if mistaken
-                {/if}
-            </p>
+        <button disabled={!enabled} on:click={guess} class="next" id="submit">
+            {#if skip}
+                Skip question
+            {:else}
+                Submit guess
+            {/if}
+            (<b>{cur_question.selected.length}</b>/<b>{total}</b> choices selected).
+            {#if enabled}
+                Points: <b>+{gain}</b> if correct, <b>{penalty}</b> if mistaken
+            {/if}
         </button>
     {:else}
         <p>
@@ -222,6 +221,23 @@
 </div>
 
 <style>
+    .next {
+        /* Look like a big button */
+        display: block;
+        margin: auto;
+        width: 99%;
+        height: 50px;
+        font-size: 110%;
+        border: 2px solid #888;
+        border-radius: 10px;
+        margin: 5px;
+    }
+    .next:disabled {
+        background: #e65;
+    }
+    .next:not(:disabled) {
+        background: #6e5;
+    }
     #content {
         margin: auto;
         width: 80%;
