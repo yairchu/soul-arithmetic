@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { onMount } from 'svelte';
+
     function shuffle(arr: any[]) {
         return arr
             .map((value: any) => ({ value, key: Math.random() }))
@@ -129,6 +131,15 @@
         if (!elem) return;
         elem.scrollIntoView({ behavior: 'smooth', block });
     }
+
+    onMount(() => {
+        // Add Cloudflare analytics
+        const script = document.createElement('script');
+        script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        script.defer = true;
+        script.setAttribute('data-cf-beacon', '{"token": "bac6319472184609ad210e5a24d600a2"}');
+        document.body.appendChild(script);
+    });
 </script>
 
 <a href="https://github.com/yairchu/soul-arithmetic">
