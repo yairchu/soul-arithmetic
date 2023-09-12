@@ -1,7 +1,7 @@
 <script lang="ts">
     export let data;
 
-    let questions = data.questions;
+    let { questions } = data;
     let score = 0;
     let cur_question_idx = 0;
 
