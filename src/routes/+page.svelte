@@ -1,12 +1,12 @@
 <script lang="ts">
-    import { onMount } from 'svelte';
-    import { questions } from './questions';
+    export let data;
 
+    let questions = data.questions;
     let score = 0;
     let cur_question_idx = 0;
 
-    let total = 4;
     $: cur_question = questions[Math.min(cur_question_idx, questions.length - 1)];
+    $: total = cur_question.answers.length;
     $: enabled = cur_question.selected.length > 0;
     $: skip = cur_question.selected.length == total;
     $: gain = skip ? 0 : Math.floor(10 / cur_question.selected.length);

@@ -1,11 +1,4 @@
-function shuffle(arr: any[]) {
-    return arr
-        .map((value: any) => ({ value, key: Math.random() }))
-        .sort((a: { key: number }, b: { key: number }) => a.key - b.key)
-        .map(({ value }) => value);
-}
-
-export let questions = shuffle([
+export let questions_pool = [
     {
         title: 'Elves and Dwarves',
         image: 'high-elf-jurum-ka.jpg',
@@ -98,8 +91,4 @@ export let questions = shuffle([
             'The leader of ISIS on women participating in paramilitary organizations'
         ]
     }
-]);
-questions.forEach((question) => {
-    question.answers = shuffle(question.alt_answers.concat([question.origin]));
-    question.selected = [];
-});
+];
