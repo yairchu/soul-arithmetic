@@ -71,7 +71,7 @@
                         src={question.origin_image}
                         alt={question.origin}
                         class="person-image"
-                        style="position: absolute; left: 0"
+                        style="position: absolute; top: 0; left: 0"
                         transition:fade
                     />
                 {/if}
