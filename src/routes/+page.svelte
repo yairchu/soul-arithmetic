@@ -58,7 +58,7 @@
             <h2>Question #{cur_question_idx + 1}: {question.title}</h2>
             <img
                 src={question_idx == cur_question_idx ? question.image : question.origin_image}
-                alt="An important elf"
+                alt={question.info}
                 width="500px"
             />
             <h2>"{question.quote}"</h2>
