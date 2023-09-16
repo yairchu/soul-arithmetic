@@ -12,6 +12,7 @@ export const load = async () => {
     questions.forEach((question) => {
         question.answers = shuffle(question.alt_answers.concat([question.origin]));
         question.selected = [];
+        question.hideAnswer = false;
     });
     return { questions };
 };

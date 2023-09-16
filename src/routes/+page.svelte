@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { fade } from 'svelte/transition';
+
     export let data;
 
     let { questions } = data;
@@ -18,7 +20,7 @@
         let prev = cur_question_idx;
         cur_question_idx += 1;
         // After the document updates, animate scrolling so that the button to go to next question is visible
-        setTimeout(() => scrollIntoView(`after-question-${prev}`, 'nearest'), 0);
+        setTimeout(() => scrollIntoView(`question-${prev}`, 'nearest'), 0);
     }
 
     function scrollIntoView(id: string, block: ScrollLogicalPosition = 'start') {
@@ -56,36 +58,38 @@
     {#each questions.slice(0, cur_question_idx + 1) as question, question_idx}
         <div id="question-{question_idx}">
             <h2>Question #{cur_question_idx + 1}: {question.title}</h2>
-            <img
-                src={question_idx == cur_question_idx ? question.image : question.origin_image}
-                alt={question.info}
-                width="500px"
-                class="person-image"
-            />
-            <h2>"{question.quote}"</h2>
-            <p>{question.info}</p>
-            <p>
-                The above statement is based on a statement originally said by a human on other
-                humans. Guess who it was:
-            </p>
-            {#each question.answers as answer}
-                <label class:origin={question_idx < cur_question_idx && answer == question.origin}>
-                    <input
-                        type="checkbox"
-                        name="answers"
-                        value={answer}
-                        bind:group={question.selected}
-                        disabled={question_idx < cur_question_idx}
-                        on:click={() => scrollIntoView(`submit`)}
+            <div style="position: relative">
+                <img
+                    src={question_idx >= cur_question_idx - 1
+                        ? question.image
+                        : question.origin_image}
+                    alt={question.info}
+                    class="person-image"
+                />
+                {#if question_idx == cur_question_idx - 1 && !question.hideAnswer}
+                    <img
+                        src={question.origin_image}
+                        alt={question.origin}
+                        class="person-image"
+                        style="position: absolute; left: 0"
+                        transition:fade
                     />
-                    {answer}
-                </label>
-            {/each}
+                {/if}
+            </div>
+            {#if question_idx < cur_question_idx && !question.hideAnswer}
+                {@html question.origin_info}
+            {:else}
+                <h2>"{question.quote}"</h2>
+                <p>{question.info}</p>
+            {/if}
             {#if question_idx < cur_question_idx}
-                <div class="origin" style="padding:10px; background: #eee">
-                    {@html question.origin_info}
-                </div>
-                <p>Score: <b>{question.score_after}</b></p>
+                <label style="padding: 5px" transition:fade>
+                    <input type="checkbox" bind:checked={question.hideAnswer} />
+                    Show question
+                </label>
+                <p>
+                    Score: <b>{question.score_after}</b>.
+                </p>
                 {#if question_idx < questions.length - 1}
                     <button
                         on:click={() => scrollIntoView(`question-${question_idx + 1}`)}
@@ -94,8 +98,30 @@
                         Next question
                     </button>
                 {/if}
-                <hr id="after-question-{question_idx}" />
+            {:else}
+                <p>
+                    The above statement is based on a statement originally said by a human on other
+                    humans. Guess who it was:
+                </p>
             {/if}
+            <div class="answers">
+                {#each question.answers as answer}
+                    <label
+                        class:origin={question_idx < cur_question_idx && answer == question.origin}
+                    >
+                        <input
+                            type="checkbox"
+                            name="answers"
+                            value={answer}
+                            bind:group={question.selected}
+                            disabled={question_idx < cur_question_idx}
+                            on:click={() => scrollIntoView(`submit`)}
+                        />
+                        {answer}
+                    </label>
+                {/each}
+            </div>
+            <hr id="after-question-{question_idx}" />
         </div>
     {/each}
     {#if cur_question_idx < questions.length}
@@ -155,18 +181,20 @@
         font-size: 200%;
     }
     label {
-        display: flex;
         border: 1px solid #888;
         border-radius: 10px;
         background: #ddd;
         margin: 5px;
+    }
+    .answers label {
+        display: flex;
     }
     .origin {
         border-radius: 10px;
         border: 2px solid black;
         background: #ccc;
     }
-    input {
+    .answers input {
         height: 25px;
         width: 25px;
         background: black;
@@ -177,5 +205,6 @@
     .person-image {
         border-radius: 50px;
         border: 2px solid #444;
+        width: 500px;
     }
 </style>
