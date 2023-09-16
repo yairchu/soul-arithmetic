@@ -60,6 +60,7 @@
                 src={question_idx == cur_question_idx ? question.image : question.origin_image}
                 alt={question.info}
                 width="500px"
+                class="person-image"
             />
             <h2>"{question.quote}"</h2>
             <p>{question.info}</p>
@@ -172,5 +173,9 @@
     }
     button {
         border-radius: 10px;
+    }
+    .person-image {
+        border-radius: 50px;
+        border: 2px solid #444;
     }
 </style>
