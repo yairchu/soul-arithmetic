@@ -59,14 +59,8 @@
         <div id="question-{question_idx}">
             <h2>Question #{cur_question_idx + 1}: {question.title}</h2>
             <div style="position: relative">
-                <img
-                    src={question_idx >= cur_question_idx - 1
-                        ? question.image
-                        : question.origin_image}
-                    alt={question.info}
-                    class="person-image"
-                />
-                {#if question_idx == cur_question_idx - 1 && !question.hideAnswer}
+                <img src={question.image} alt={question.info} class="person-image" />
+                {#if question_idx < cur_question_idx && !question.hideAnswer}
                     <img
                         src={question.origin_image}
                         alt={question.origin}
