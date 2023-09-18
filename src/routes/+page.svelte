@@ -14,14 +14,31 @@
     $: gain = skip ? 0 : Math.floor(10 / curQuestion.selected.length);
     $: penalty = skip ? 0 : Math.floor(-10 / (total - curQuestion.selected.length));
 
+    function onScrollStop(action: () => void) {
+        var lastPos: number | null = null;
+        function checkPos() {
+            let pos = window.scrollY;
+            console.log(lastPos);
+            if (pos == lastPos) {
+                action();
+            } else {
+                lastPos = pos;
+                requestAnimationFrame(checkPos);
+            }
+        }
+        requestAnimationFrame(checkPos);
+    }
+
     function guess() {
         score += curQuestion.selected.includes(curQuestion.origin) ? gain : penalty;
         curQuestion.scoreAfter = score;
-        curQuestion.hideAnswer = false;
         let prev = curQuestionIdx;
         curQuestionIdx += 1;
         // After the document updates, animate scrolling so that the button to go to next question is visible
-        setTimeout(() => scrollIntoView(`question-${prev}`), 0);
+        setTimeout(() => {
+            scrollIntoView(`question-${prev}`);
+            onScrollStop(() => (questions[prev].hideAnswer = false));
+        }, 0);
     }
 
     function scrollIntoView(id: string) {
