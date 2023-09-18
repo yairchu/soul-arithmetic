@@ -84,7 +84,7 @@
                         alt={question.origin}
                         class="person-image"
                         style="position: absolute; top: 0; left: 0"
-                        transition:fade
+                        transition:fade={{ duration: 1000 }}
                     />
                 {/if}
             </div>
@@ -95,7 +95,7 @@
                 <p>{question.info}</p>
             {/if}
             {#if questionIdx < curQuestionIdx}
-                <label style="padding: 5px" transition:fade>
+                <label style="padding: 5px">
                     <input type="checkbox" bind:checked={question.hideAnswer} />
                     Show question
                 </label>
