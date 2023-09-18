@@ -135,6 +135,11 @@
         </div>
     {/each}
     {#if curQuestionIdx < questions.length}
+        {#if enabled}
+            Points: <b>+{gain}</b> if correct, <b>{penalty}</b> if mistaken
+        {:else}
+            (multiple choices allowed)
+        {/if}
         <button disabled={!enabled} on:click={guess} class="next" id="submit">
             {#if skip}
                 Skip question
@@ -142,9 +147,6 @@
                 Submit guess
             {/if}
             (<b>{curQuestion.selected.length}</b>/<b>{total}</b> choices selected).
-            {#if enabled}
-                Points: <b>+{gain}</b> if correct, <b>{penalty}</b> if mistaken
-            {/if}
         </button>
     {:else}
         <p>
