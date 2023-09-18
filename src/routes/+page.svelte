@@ -179,7 +179,7 @@
     }
     #content {
         margin: auto;
-        width: 80%;
+        width: 95%;
         max-width: 800px;
     }
     img {
