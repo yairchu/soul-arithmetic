@@ -17,6 +17,7 @@
     function guess() {
         score += cur_question.selected.includes(cur_question.origin) ? gain : penalty;
         cur_question.score_after = score;
+        cur_question.hideAnswer = false;
         let prev = cur_question_idx;
         cur_question_idx += 1;
         // After the document updates, animate scrolling so that the button to go to next question is visible
@@ -60,7 +61,7 @@
             <h2>Question #{cur_question_idx + 1}: {question.title}</h2>
             <div style="position: relative">
                 <img src={question.image} alt={question.info} class="person-image" />
-                {#if question_idx < cur_question_idx && !question.hideAnswer}
+                {#if !question.hideAnswer}
                     <img
                         src={question.origin_image}
                         alt={question.origin}
@@ -70,7 +71,7 @@
                     />
                 {/if}
             </div>
-            {#if question_idx < cur_question_idx && !question.hideAnswer}
+            {#if !question.hideAnswer}
                 {@html question.origin_info}
             {:else}
                 <h2>"{question.quote}"</h2>
