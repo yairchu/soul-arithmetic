@@ -21,13 +21,13 @@
         let prev = curQuestionIdx;
         curQuestionIdx += 1;
         // After the document updates, animate scrolling so that the button to go to next question is visible
-        setTimeout(() => scrollIntoView(`question-${prev}`, 'nearest'), 0);
+        setTimeout(() => scrollIntoView(`question-${prev}`), 0);
     }
 
-    function scrollIntoView(id: string, block: ScrollLogicalPosition = 'start') {
+    function scrollIntoView(id: string) {
         let elem = document.getElementById(id);
         if (!elem) return;
-        elem.scrollIntoView({ behavior: 'smooth', block });
+        elem.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
