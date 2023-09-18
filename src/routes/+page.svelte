@@ -5,21 +5,21 @@
 
     let { questions } = data;
     let score = 0;
-    let cur_question_idx = 0;
+    let curQuestionIdx = 0;
 
-    $: cur_question = questions[Math.min(cur_question_idx, questions.length - 1)];
-    $: total = cur_question.answers.length;
-    $: enabled = cur_question.selected.length > 0;
-    $: skip = cur_question.selected.length == total;
-    $: gain = skip ? 0 : Math.floor(10 / cur_question.selected.length);
-    $: penalty = skip ? 0 : Math.floor(-10 / (total - cur_question.selected.length));
+    $: curQuestion = questions[Math.min(curQuestionIdx, questions.length - 1)];
+    $: total = curQuestion.answers.length;
+    $: enabled = curQuestion.selected.length > 0;
+    $: skip = curQuestion.selected.length == total;
+    $: gain = skip ? 0 : Math.floor(10 / curQuestion.selected.length);
+    $: penalty = skip ? 0 : Math.floor(-10 / (total - curQuestion.selected.length));
 
     function guess() {
-        score += cur_question.selected.includes(cur_question.origin) ? gain : penalty;
-        cur_question.score_after = score;
-        cur_question.hideAnswer = false;
-        let prev = cur_question_idx;
-        cur_question_idx += 1;
+        score += curQuestion.selected.includes(curQuestion.origin) ? gain : penalty;
+        curQuestion.scoreAfter = score;
+        curQuestion.hideAnswer = false;
+        let prev = curQuestionIdx;
+        curQuestionIdx += 1;
         // After the document updates, animate scrolling so that the button to go to next question is visible
         setTimeout(() => scrollIntoView(`question-${prev}`, 'nearest'), 0);
     }
@@ -56,14 +56,14 @@
     </p>
     <p>If that's fine by you, then here we go:</p>
     <hr />
-    {#each questions.slice(0, cur_question_idx + 1) as question, question_idx}
-        <div id="question-{question_idx}">
-            <h2>Question #{cur_question_idx + 1}: {question.title}</h2>
+    {#each questions.slice(0, curQuestionIdx + 1) as question, questionIdx}
+        <div id="question-{questionIdx}">
+            <h2>Question #{curQuestionIdx + 1}: {question.title}</h2>
             <div style="position: relative">
                 <img src={question.image} alt={question.info} class="person-image" />
                 {#if !question.hideAnswer}
                     <img
-                        src={question.origin_image}
+                        src={question.originImage}
                         alt={question.origin}
                         class="person-image"
                         style="position: absolute; top: 0; left: 0"
@@ -72,22 +72,22 @@
                 {/if}
             </div>
             {#if !question.hideAnswer}
-                {@html question.origin_info}
+                {@html question.originInfo}
             {:else}
                 <h2>"{question.quote}"</h2>
                 <p>{question.info}</p>
             {/if}
-            {#if question_idx < cur_question_idx}
+            {#if questionIdx < curQuestionIdx}
                 <label style="padding: 5px" transition:fade>
                     <input type="checkbox" bind:checked={question.hideAnswer} />
                     Show question
                 </label>
                 <p>
-                    Score: <b>{question.score_after}</b>.
+                    Score: <b>{question.scoreAfter}</b>.
                 </p>
-                {#if question_idx < questions.length - 1}
+                {#if questionIdx < questions.length - 1}
                     <button
-                        on:click={() => scrollIntoView(`question-${question_idx + 1}`)}
+                        on:click={() => scrollIntoView(`question-${questionIdx + 1}`)}
                         class="next"
                     >
                         Next question
@@ -101,32 +101,30 @@
             {/if}
             <div class="answers">
                 {#each question.answers as answer}
-                    <label
-                        class:origin={question_idx < cur_question_idx && answer == question.origin}
-                    >
+                    <label class:origin={questionIdx < curQuestionIdx && answer == question.origin}>
                         <input
                             type="checkbox"
                             name="answers"
                             value={answer}
                             bind:group={question.selected}
-                            disabled={question_idx < cur_question_idx}
+                            disabled={questionIdx < curQuestionIdx}
                             on:click={() => scrollIntoView(`submit`)}
                         />
                         {answer}
                     </label>
                 {/each}
             </div>
-            <hr id="after-question-{question_idx}" />
+            <hr id="after-question-{questionIdx}" />
         </div>
     {/each}
-    {#if cur_question_idx < questions.length}
+    {#if curQuestionIdx < questions.length}
         <button disabled={!enabled} on:click={guess} class="next" id="submit">
             {#if skip}
                 Skip question
             {:else}
                 Submit guess
             {/if}
-            (<b>{cur_question.selected.length}</b>/<b>{total}</b> choices selected).
+            (<b>{curQuestion.selected.length}</b>/<b>{total}</b> choices selected).
             {#if enabled}
                 Points: <b>+{gain}</b> if correct, <b>{penalty}</b> if mistaken
             {/if}

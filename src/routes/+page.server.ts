@@ -1,4 +1,4 @@
-import { questions_pool } from './questions';
+import { questionsPool } from './questions';
 
 function shuffle(arr: any[]) {
     return arr
@@ -8,9 +8,9 @@ function shuffle(arr: any[]) {
 }
 
 export const load = async () => {
-    let questions = shuffle(questions_pool);
+    let questions = shuffle(questionsPool);
     questions.forEach((question) => {
-        question.answers = shuffle(question.alt_answers.concat([question.origin]));
+        question.answers = shuffle(question.altAnswers.concat([question.origin]));
         question.selected = [];
         question.hideAnswer = true;
     });
