@@ -1,5 +1,8 @@
 <script lang="ts">
+    import ForkMe from './ForkMe.svelte';
+    import Intro from './Intro.svelte';
     import Question from './Question.svelte';
+    import ThatsAll from './ThatsAll.svelte';
     import { scrollIntoView } from './utils';
 
     export let data;
@@ -43,31 +46,10 @@
     }
 </script>
 
-<a href="https://github.com/yairchu/soul-arithmetic">
-    <img
-        style="position: absolute; top: 0; right: 0; border: 0;"
-        decoding="async"
-        width="149"
-        height="149"
-        src="https://github.blog/wp-content/uploads/2008/12/forkme_right_green_007200.png?resize=149%2C149"
-        alt="Fork me on GitHub"
-        loading="lazy"
-        data-recalc-dims="1"
-    />
-</a>
+<ForkMe />
 
 <div style="margin: auto" id="content">
-    <h1>Soul Arithmetic</h1>
-    <p>
-        This educational quiz-game is meant to confront societal tolerance towards racism, misoginy,
-        homophobia, and other forms of intolerance.
-    </p>
-    <p>
-        It consists of imaginary offensive quotes which are based on actual quotes said by actual
-        people of importance and positions of power in our society.
-    </p>
-    <p>If that's fine by you, then here we go:</p>
-    <hr />
+    <Intro />
     {#each questions.slice(0, curQuestionIdx + 1) as question, questionIdx}
         <div id="question-{questionIdx}">
             <Question
@@ -109,13 +91,7 @@
             (<b>{curQuestion.selected.length}</b>/<b>{total}</b> choices selected).
         </button>
     {:else}
-        <p>
-            This is all I have for now, this game is in very early alpha stages. I'm not a web or
-            game developer, nor UX designer or graphics artist. If you would like to help make it,
-            your help is very wanted and appreciated! Development is done over at <a
-                href="https://github.com/yairchu/soul-arithmetic">GitHub</a
-            >. Cheers! - Yair
-        </p>
+        <ThatsAll/>
     {/if}
 </div>
 
@@ -125,9 +101,6 @@
         margin: auto;
         width: 95%;
         max-width: 800px;
-    }
-    h1 {
-        font-size: 200%;
     }
     .answers label {
         display: flex;
