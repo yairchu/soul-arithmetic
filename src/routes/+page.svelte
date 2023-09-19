@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { fade } from 'svelte/transition';
+    import Question from './Question.svelte';
     import { scrollIntoView } from './utils';
 
     export let data;
@@ -70,47 +70,12 @@
     <hr />
     {#each questions.slice(0, curQuestionIdx + 1) as question, questionIdx}
         <div id="question-{questionIdx}">
-            <h2>Question #{questionIdx + 1}: {question.title}</h2>
-            <div style="position: relative">
-                <img src={question.image} alt={question.info} class="person-image" />
-                {#if !question.hideAnswer}
-                    <img
-                        src={question.originImage}
-                        alt={question.origin}
-                        class="person-image"
-                        style="position: absolute; top: 0; left: 0"
-                        transition:fade={{ duration: 1000 }}
-                    />
-                {/if}
-            </div>
-            {#if !question.hideAnswer}
-                {@html question.originInfo}
-            {:else}
-                <h2>"{question.quote}"</h2>
-                <p>{question.info}</p>
-            {/if}
-            {#if questionIdx < curQuestionIdx}
-                <label style="padding: 5px">
-                    <input type="checkbox" bind:checked={question.hideAnswer} />
-                    Show question
-                </label>
-                <p>
-                    Score: <b>{question.scoreAfter}</b>.
-                </p>
-                {#if questionIdx < questions.length - 1}
-                    <button
-                        on:click={() => scrollIntoView(`question-${questionIdx + 1}`)}
-                        class="next"
-                    >
-                        Next question
-                    </button>
-                {/if}
-            {:else}
-                <p>
-                    The above statement is based on a statement originally said by a human on other
-                    humans. Guess who it was:
-                </p>
-            {/if}
+            <Question
+                {question}
+                {questionIdx}
+                isCurrent={questionIdx == curQuestionIdx}
+                isLast={questionIdx + 1 == questions.length}
+            />
             <div class="answers">
                 {#each question.answers as answer}
                     <label class:origin={questionIdx < curQuestionIdx && answer == question.origin}>
@@ -154,64 +119,27 @@
     {/if}
 </div>
 
-<style>
-    .next {
-        /* Look like a big button */
-        display: block;
-        margin: auto;
-        width: 99%;
-        height: 50px;
-        font-size: 110%;
-        border: 2px solid #888;
-        border-radius: 10px;
-        margin: 5px;
-    }
-    .next:disabled {
-        background: #e65;
-    }
-    .next:not(:disabled) {
-        background: #6e5;
-    }
+<style lang="scss">
+    @import './styles.scss';
     #content {
         margin: auto;
         width: 95%;
         max-width: 800px;
     }
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-    * {
-        font-size: large;
-    }
     h1 {
         font-size: 200%;
     }
-    label {
-        border: 1px solid #888;
-        border-radius: 10px;
-        background: #ddd;
-        margin: 5px;
-    }
     .answers label {
         display: flex;
-    }
-    .origin {
-        border-radius: 10px;
-        border: 2px solid black;
-        background: #ccc;
     }
     .answers input {
         height: 25px;
         width: 25px;
         background: black;
     }
-    button {
+    .origin {
         border-radius: 10px;
-    }
-    .person-image {
-        border-radius: 50px;
-        border: 2px solid #444;
-        width: 500px;
+        border: 2px solid black;
+        background: #ccc;
     }
 </style>
