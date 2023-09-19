@@ -8,8 +8,8 @@ export let questionsPool = [
         originImage: 'bezalel-smotrich.jpg',
         originInfo: /*html*/ `
             <p>
-                Israel's finance minister, Bezalel Smotrich, called for the destruction of Huwara, a West
-                Bank Palestinian village days after
+                <b>Israel's finance minister Bezalel Smotrich</b>, called for the <b>destruction</b> of Huwara, a West
+                Bank <b>Palestinian</b> village days after
                 <a href="https://en.wikipedia.org/wiki/Huwara_rampage">
                     it was attacked by a mob of settlers who torched dozens of homes and killed one
                     resident</a>.
@@ -34,9 +34,9 @@ export let questionsPool = [
         originImage: 'jair-bolsonaro.jpg',
         originInfo: /*html*/ `
             <p>
-                Jair Bolsonaro, the president of Brazil between 2019-2022
+                <b>Jair Bolsonaro</b>, the <b>president of Brazil</b> between 2019-2022
                 <a href="https://en.wikipedia.org/wiki/Jair_Bolsonaro#Views_on_homosexuality">
-                    has said that if he had a gay son then he would prefer for him to die in an accident</a>.
+                    has said that if he had a <b>gay</b> son then he would prefer for him to <b>die</b> in an accident</a>.
             </p>
             `,
         altAnswers: [
@@ -54,14 +54,14 @@ export let questionsPool = [
         originImage: 'hendrik-verwoerd.jpg',
         originInfo: /*html*/ `
             <p>
-                Hendrik Verwoerd, the founding prime minister of Apartheid South Africa,
+                <b>Hendrik Verwoerd</b>, the founding <b>prime minister of Apartheid South Africa</b>,
                 <a href="https://en.wikiquote.org/wiki/Hendrik_Verwoerd">has said</a>:
             </p>
             <p>
                 "There will be competition and conflict everywhere.
                 So long as the points of contact are still comparatively few, as is the case now,
                 friction and conflict will be few and less evident.
-                The more this intermixing develops, however, the stronger the conflict will become."
+                The more this <b>intermixing</b> develops, however, the stronger the conflict will become."
             </p>
             `,
         altAnswers: [
@@ -79,10 +79,10 @@ export let questionsPool = [
         originImage: 'ovadia-yosef.jpg',
         originInfo: /*html*/ `
             <p>
-                Rabbi Ovadia Yosef
+                <b>Rabbi Ovadia Yosef</b>
                 <a href="https://www.jpost.com/jewish-world/jewish-news/rabbi-ovadia-women-should-stick-to-cooking-sewing">
                     has said</a>
-                that women should not engage in religious studies because they are stupid.
+                that <b>women</b> should not engage in religious studies because they are <b>stupid</b>.
             </p>
             `,
         altAnswers: [

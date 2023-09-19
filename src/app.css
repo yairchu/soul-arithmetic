@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.next:disabled {
+    background: #e65;
+}
+
+.next:not(:disabled) {
+    background: #6e5;
+}

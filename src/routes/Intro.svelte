@@ -1,4 +1,5 @@
-<h1>Soul Arithmetic</h1>
+<h1 class="font-extrabold text-4xl">Soul Arithmetic</h1>
+<h2 class="font-bold text-xl">Content Warning</h2>
 <p>
     This educational quiz-game is meant to confront societal tolerance towards racism, misoginy,
     homophobia, and other forms of intolerance.
@@ -9,4 +10,4 @@
 </p>
 <p>If that's fine by you, then here we go:</p>
 
-<style src="./styles.scss"></style>
+<style lang="postcss"></style>

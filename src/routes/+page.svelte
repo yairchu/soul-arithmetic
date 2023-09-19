@@ -33,7 +33,7 @@
 
 <ForkMe />
 
-<div style="margin: auto" id="content">
+<div class="mx-auto max-w-3xl">
     <Intro />
     {#each questions.slice(0, curQuestionIdx + 1) as question, questionIdx}
         <div id="question-{questionIdx}">
@@ -45,7 +45,10 @@
             />
             <div class="answers">
                 {#each question.answers as answer}
-                    <label class:origin={questionIdx < curQuestionIdx && answer == question.origin}>
+                    <label
+                        class="px-4 py-1 rounded-xl border border-black flex bg-slate-200 m-1"
+                        class:origin={questionIdx < curQuestionIdx && answer == question.origin}
+                    >
                         <input
                             type="checkbox"
                             name="answers"
@@ -61,31 +64,33 @@
         </div>
     {/each}
     {#if curQuestionIdx < questions.length}
-        {#if enabled}
-            Points: <b>+{gain}</b> if correct, <b>{penalty}</b> if mistaken
-        {:else}
-            (multiple choices allowed)
-        {/if}
-        <button disabled={!enabled} on:click={guess} class="next" id="submit">
+        <p class="text-center">
+            {#if enabled}
+                Points: <b>+{gain}</b> if correct, <b>{penalty}</b> if mistaken
+            {:else}
+                (multiple choices allowed)
+            {/if}
+        </p>
+        <button
+            disabled={!enabled}
+            on:click={guess}
+            class="next px-4 py-1 rounded-full border mx-auto shadow-lg flex text-lg"
+            id="submit"
+        >
             {#if skip}
                 Skip question
             {:else}
                 Submit guess
             {/if}
-            (<b>{curQuestion.selected.length}</b>/<b>{total}</b> choices selected).
+            (<b>{curQuestion.selected.length}</b>/<b>{total}</b>&nbsp;choices selected)
         </button>
     {:else}
         <ThatsAll />
     {/if}
+    <div class="h-5" />
 </div>
 
 <style lang="postcss">
-    @import './styles.scss';
-    #content {
-        margin: auto;
-        width: 95%;
-        max-width: 800px;
-    }
     .answers label {
         display: flex;
     }
