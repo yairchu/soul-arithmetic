@@ -79,7 +79,7 @@
     {/if}
 </div>
 
-<style lang="scss">
+<style lang="postcss">
     @import './styles.scss';
     #content {
         margin: auto;

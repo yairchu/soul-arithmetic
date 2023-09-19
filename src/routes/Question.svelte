@@ -50,7 +50,7 @@
     {/if}
 {/if}
 
-<style lang="scss">
+<style lang="postcss">
     @import './styles.scss';
     img {
         max-width: 100%;
