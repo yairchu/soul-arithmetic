@@ -1,4 +1,5 @@
-<hr/>
+<hr />
+<h1>That's all, folks!</h1>
 <p>
     This is all I have for now, this game is in very early alpha stages. I'm not a web or game
     developer, nor UX designer or graphics artist. If you would like to help make it, your help is
@@ -6,3 +7,5 @@
         href="https://github.com/yairchu/soul-arithmetic">GitHub</a
     >. Cheers! - Yair
 </p>
+
+<style src="./styles.scss"></style>

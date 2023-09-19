@@ -9,8 +9,4 @@
 </p>
 <p>If that's fine by you, then here we go:</p>
 
-<style>
-    h1 {
-        font-size: 200%;
-    }
-</style>
+<style src="./styles.scss"></style>
