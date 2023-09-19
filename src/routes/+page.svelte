@@ -91,7 +91,7 @@
             (<b>{curQuestion.selected.length}</b>/<b>{total}</b> choices selected).
         </button>
     {:else}
-        <ThatsAll/>
+        <ThatsAll />
     {/if}
 </div>
 
