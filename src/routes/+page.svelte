@@ -58,7 +58,6 @@
                     </label>
                 {/each}
             </div>
-            <hr id="after-question-{questionIdx}" />
         </div>
     {/each}
     {#if curQuestionIdx < questions.length}

@@ -8,7 +8,6 @@
     of importance and positions of power in our society.
 </p>
 <p>If that's fine by you, then here we go:</p>
-<hr />
 
 <style>
     h1 {

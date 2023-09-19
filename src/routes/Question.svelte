@@ -9,6 +9,7 @@
 </script>
 
 <div id="question-{questionIdx}-header">
+    <hr />
     <h2>Question #{questionIdx + 1}: {question.title}</h2>
     <div style="position: relative">
         <img src={question.image} alt={question.info} class="person-image" />
