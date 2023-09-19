@@ -3,7 +3,7 @@
     import Intro from './Intro.svelte';
     import Question from './Question.svelte';
     import ThatsAll from './ThatsAll.svelte';
-    import { scrollIntoView } from './utils';
+    import { scrollIntoView } from '$lib/scroll';
 
     export let data;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
-    import { scrollIntoView } from './utils';
+    import { scrollIntoView } from '$lib/scroll';
 
     export var question: any;
     export let questionIdx: number;
