@@ -75,7 +75,7 @@
     <hr />
     {#each questions.slice(0, curQuestionIdx + 1) as question, questionIdx}
         <div id="question-{questionIdx}">
-            <h2>Question #{curQuestionIdx + 1}: {question.title}</h2>
+            <h2>Question #{questionIdx + 1}: {question.title}</h2>
             <div style="position: relative">
                 <img src={question.image} alt={question.info} class="person-image" />
                 {#if !question.hideAnswer}
