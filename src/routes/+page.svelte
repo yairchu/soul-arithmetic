@@ -3,7 +3,7 @@
     import Intro from './Intro.svelte';
     import Question from './Question.svelte';
     import ThatsAll from './ThatsAll.svelte';
-    import { scrollIntoView } from '$lib/scroll';
+    import { scrollIntoView, onScrollStop } from '$lib/scroll';
 
     export let data;
 
@@ -17,21 +17,6 @@
     $: skip = curQuestion.selected.length == total;
     $: gain = skip ? 0 : Math.floor(10 / curQuestion.selected.length);
     $: penalty = skip ? 0 : Math.floor(-10 / (total - curQuestion.selected.length));
-
-    function onScrollStop(action: () => void) {
-        var lastPos: number | null = null;
-        function checkPos() {
-            let pos = window.scrollY;
-            console.log(lastPos);
-            if (pos == lastPos) {
-                action();
-            } else {
-                lastPos = pos;
-                requestAnimationFrame(checkPos);
-            }
-        }
-        requestAnimationFrame(checkPos);
-    }
 
     function guess() {
         score += curQuestion.selected.includes(curQuestion.origin) ? gain : penalty;

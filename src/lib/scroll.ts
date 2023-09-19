@@ -12,3 +12,18 @@ export function scrollIntoView(id: string) {
     }
     elem.scrollIntoView({ behavior: 'smooth' });
 }
+
+export function onScrollStop(action: () => void) {
+    let lastPos: number | null = null;
+    let checkPos = () => {
+        let pos = window.scrollY;
+        console.log(lastPos);
+        if (pos == lastPos) {
+            action();
+        } else {
+            lastPos = pos;
+            requestAnimationFrame(checkPos);
+        }
+    }
+    requestAnimationFrame(checkPos);
+}
