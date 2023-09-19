@@ -33,7 +33,7 @@
 
 <ForkMe />
 
-<div class="mx-auto max-w-3xl p-3">
+<div class="container mx-auto max-w-3xl p-3">
     <Intro />
     {#each questions.slice(0, curQuestionIdx + 1) as question, questionIdx}
         <div id="question-{questionIdx}">
