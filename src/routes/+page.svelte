@@ -40,7 +40,7 @@
         curQuestionIdx += 1;
         // After the document updates, animate scrolling so that the button to go to next question is visible
         setTimeout(() => {
-            scrollIntoView(`question-${prev}`);
+            scrollIntoView(`question-${prev}-header`);
             onScrollStop(() => (questions[prev].hideAnswer = false));
         }, 0);
     }

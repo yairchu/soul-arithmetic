@@ -8,18 +8,20 @@
     export let isLast: boolean;
 </script>
 
-<h2>Question #{questionIdx + 1}: {question.title}</h2>
-<div style="position: relative">
-    <img src={question.image} alt={question.info} class="person-image" />
-    {#if !question.hideAnswer}
-        <img
-            src={question.originImage}
-            alt={question.origin}
-            class="person-image"
-            style="position: absolute; top: 0; left: 0"
-            transition:fade={{ duration: 1000 }}
-        />
-    {/if}
+<div id="question-{questionIdx}-header">
+    <h2>Question #{questionIdx + 1}: {question.title}</h2>
+    <div style="position: relative">
+        <img src={question.image} alt={question.info} class="person-image" />
+        {#if !question.hideAnswer}
+            <img
+                src={question.originImage}
+                alt={question.origin}
+                class="person-image"
+                style="position: absolute; top: 0; left: 0"
+                transition:fade={{ duration: 1000 }}
+            />
+        {/if}
+    </div>
 </div>
 {#if !question.hideAnswer}
     {@html question.originInfo}
