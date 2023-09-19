@@ -1,5 +1,6 @@
 <script lang="ts">
     import { fade } from 'svelte/transition';
+    import { scrollIntoView } from './utils';
 
     export let data;
 
@@ -39,12 +40,6 @@
             scrollIntoView(`question-${prev}`);
             onScrollStop(() => (questions[prev].hideAnswer = false));
         }, 0);
-    }
-
-    function scrollIntoView(id: string) {
-        let elem = document.getElementById(id);
-        if (!elem) return;
-        elem.scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 
