@@ -86,9 +86,6 @@
         border: 2px solid #444;
         width: 500px;
     }
-    .answers label {
-        display: flex;
-    }
     .answers input {
         height: 25px;
         width: 25px;
