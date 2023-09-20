@@ -5,8 +5,6 @@ export function scrollIntoView(id: string) {
     }
     // Check whether element is fully visible already
     let rect = elem.getBoundingClientRect();
-    console.log(rect);
-    console.log(window.innerHeight);
     if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
         return;
     }
