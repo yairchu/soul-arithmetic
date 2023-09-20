@@ -71,17 +71,4 @@
 </div>
 
 <style lang="postcss">
-    .answers label {
-        display: flex;
-    }
-    .answers input {
-        height: 25px;
-        width: 25px;
-        background: black;
-    }
-    .origin {
-        border-radius: 10px;
-        border: 2px solid black;
-        background: #ccc;
-    }
 </style>
