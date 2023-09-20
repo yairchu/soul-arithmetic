@@ -1,7 +1,7 @@
 <h1 class="font-extrabold text-4xl">Soul Arithmetic</h1>
 <h2 class="font-bold text-xl">Content Warning</h2>
 <p>
-    This educational quiz-game is meant to confront societal tolerance towards racism, misoginy,
+    This educational quiz-game is meant to confront societal tolerance towards racism, misogyny,
     homophobia, and other forms of intolerance.
 </p>
 <p>
