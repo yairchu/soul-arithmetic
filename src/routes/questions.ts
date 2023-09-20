@@ -1,4 +1,4 @@
-export let questionsPool = [
+export const questionsPool = [
     {
         title: 'Elves and Dwarves',
         image: 'high-elf-jurum-ka.jpg',
