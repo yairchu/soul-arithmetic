@@ -36,32 +36,12 @@
 <div class="container mx-auto max-w-3xl p-3">
     <Intro />
     {#each questions.slice(0, curQuestionIdx + 1) as question, questionIdx}
-        <div id="question-{questionIdx}">
-            <Question
-                {question}
-                {questionIdx}
-                isCurrent={questionIdx == curQuestionIdx}
-                isLast={questionIdx + 1 == questions.length}
-            />
-            <div class="answers">
-                {#each question.answers as answer}
-                    <label
-                        class="px-4 py-1 rounded-xl border border-black flex bg-slate-200 m-1"
-                        class:origin={questionIdx < curQuestionIdx && answer == question.origin}
-                    >
-                        <input
-                            type="checkbox"
-                            name="answers"
-                            value={answer}
-                            bind:group={question.selected}
-                            disabled={questionIdx < curQuestionIdx}
-                            on:click={() => scrollIntoView(`submit`)}
-                        />
-                        {answer}
-                    </label>
-                {/each}
-            </div>
-        </div>
+        <Question
+            bind:question
+            {questionIdx}
+            isCurrent={questionIdx == curQuestionIdx}
+            isLast={questionIdx + 1 == questions.length}
+        />
     {/each}
     {#if curQuestionIdx < questions.length}
         <p class="text-center">
