@@ -81,10 +81,6 @@
 </div>
 
 <style lang="postcss">
-    img {
-        max-width: 100%;
-        height: auto;
-    }
     .person-image {
         border-radius: 50px;
         border: 2px solid #444;
