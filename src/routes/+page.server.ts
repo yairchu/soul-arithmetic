@@ -8,7 +8,7 @@ function shuffle(arr: any[]) {
 }
 
 export const load = async () => {
-    let questions = shuffle(questionsPool);
+    const questions = shuffle(questionsPool);
     questions.forEach((question) => {
         question.answers = shuffle(question.altAnswers.concat([question.origin]));
         question.selected = [];
