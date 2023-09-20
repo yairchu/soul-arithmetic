@@ -24,6 +24,6 @@ export function onScrollStop(action: () => void) {
             lastPos = pos;
             requestAnimationFrame(checkPos);
         }
-    }
+    };
     requestAnimationFrame(checkPos);
 }
